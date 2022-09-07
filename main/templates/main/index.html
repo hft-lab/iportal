@@ -1,0 +1,54 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+View
+{% endblock %}
+
+
+{% block content %}
+
+<!--{% if request.user.is_authenticated %}-->
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-9">
+                {% for item in task %}
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <h4>Результаты:</h4>
+                        </div>
+                        <div class="card-body">
+                            <p><b>{{ item.title }}</b></p>
+                            <p>{{ item.task }}</p>
+                            <p>{{ item.day }}</p>
+                            <p>{{ item.month }}</p>
+                            <p>{{ item.ftx }}</p>
+                            <p>{{ item.waves }}</p>
+                            <p>{{ item.created_at }}</p>
+                        </div>
+                        <div class="card-footer text-muted">
+                            {{ item.created_at|date:"Y-m-d H:i" }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+<!--
+{% else %}
+
+
+    <div class="bg-light p-7 rounded">
+        <div class="col-sm-4 py-2 mx-auto">
+
+            <h1 class="display-8 fw-normal">Ввойдите в аккаунт</h1>
+            <p>
+                <a class="w-100 btn btn-primary" href="{% url 'login' %}" role="button">Дальше</a>
+            </p>
+        </div>
+    </div>
+
+
+{% endif %}
+-->
+{% endblock %}
