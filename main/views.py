@@ -3,8 +3,10 @@ from django.contrib import messages
 from .forms import UserRegisterForm, UserLoginForm
 from django.contrib.auth import login, logout
 from .models import Task
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def index(request):
     task = Task.objects.order_by('-created_at')
     return render(request, 'main/index.html', {'task': task, 'title': 'Результаты'})
